@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kong Cornerstone Group — Professional Residential Real Estate</title>
-  <meta name="description" content="Kong Cornerstone Group is a private owner-operator focused on residential properties in New York City, with current operations in Queens and the Bronx.">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231a2332'/><text x='16' y='22' font-size='18' font-family='serif' fill='%23c9a96e' text-anchor='middle' font-weight='bold'>K</text></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kong Cornerstone Group provides residential property management services with a focus on clear communication, responsible operations, and long-term property stewardship." />
+  <title>Kong Cornerstone Group</title>
   <style>
-    :root {
-      --navy: #1a2332;
-      --navy-light: #243044;
-      --gold: #c9a96e;
-      --gold-light: #d4b87d;
-      --cream: #f8f6f1;
-      --white: #ffffff;
-      --text: #2c3e50;
-      --text-light: #5a6a7a;
-      --border: #e2ddd5;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #1e2d3d;
+      --navy-light: #263547;
+      --accent: #4a7c59;
+      --accent-light: #5f9970;
+      --white: #ffffff;
+      --off-white: #f7f7f5;
+      --gray: #6b7280;
+      --text: #1f2937;
+    }
 
     html { scroll-behavior: smooth; }
 
@@ -28,405 +25,354 @@
       font-family: 'Georgia', 'Times New Roman', serif;
       color: var(--text);
       background: var(--white);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.75;
     }
 
-    /* ── Header ──────────────────────────────────────── */
-    header {
-      background: var(--navy);
-      padding: 18px 0;
+    /* NAV */
+    nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 32px;
+      background: var(--navy);
+      padding: 0 6%;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .logo-mark {
-      width: 38px;
-      height: 38px;
-      background: var(--gold);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -1px;
-    }
-
-    .logo-text {
+    .nav-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--white);
-      font-size: 17px;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-    }
-
-    .logo-text strong {
-      font-weight: 700;
-    }
-
-    .header-email {
-      color: var(--gold);
       text-decoration: none;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.3px;
+    }
+
+    .nav-contact {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
       transition: color 0.2s;
     }
 
-    .header-email:hover { color: var(--gold-light); }
+    .nav-contact:hover { color: var(--white); }
 
-    /* ── Hero ─────────────────────────────────────────── */
+    /* HERO */
     .hero {
-      background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 100%);
-      padding: 160px 32px 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 100px 6% 80px;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 80px,
-        rgba(201,169,110,0.03) 80px,
-        rgba(201,169,110,0.03) 81px
-      );
-    }
-
-    .hero-content {
-      max-width: 780px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+    .hero-inner { max-width: 700px; }
 
     .hero-rule {
-      width: 60px;
+      width: 40px;
       height: 2px;
-      background: var(--gold);
-      margin: 0 auto 36px;
+      background: var(--accent);
+      margin-bottom: 32px;
     }
 
     .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.25;
       color: var(--white);
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 28px;
-      letter-spacing: 0.3px;
-    }
-
-    .hero p {
-      color: rgba(255,255,255,0.7);
-      font-size: clamp(16px, 2vw, 19px);
-      line-height: 1.8;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    /* ── About Section ────────────────────────────────── */
-    .about {
-      padding: 80px 32px;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .about-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-label {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .about h2 {
-      font-size: clamp(22px, 3vw, 30px);
-      font-weight: 400;
-      color: var(--navy);
       margin-bottom: 24px;
-      line-height: 1.4;
+      letter-spacing: -0.01em;
     }
 
-    .about p {
-      color: var(--text-light);
-      font-size: 17px;
-      line-height: 1.9;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    /* ── Focus Areas ──────────────────────────────────── */
-    .focus {
-      padding: 80px 32px;
-      background: var(--white);
-    }
-
-    .focus-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .focus h2 {
-      font-size: clamp(22px, 3vw, 30px);
-      font-weight: 400;
-      color: var(--navy);
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 540px;
+      line-height: 1.8;
       margin-bottom: 48px;
     }
 
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 32px;
-      text-align: left;
+    .hero-cta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 3px;
+      transition: border-color 0.2s;
     }
 
-    .focus-card {
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      background: var(--white);
+    .hero-cta:hover { border-color: var(--white); }
+
+    /* ABOUT */
+    .about {
+      padding: 96px 6%;
+      background: var(--off-white);
     }
 
-    .focus-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .focus-card p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.7;
-    }
-
-    /* ── Contact Section ──────────────────────────────── */
-    .contact {
-      padding: 80px 32px;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .contact-inner {
-      max-width: 600px;
+    .section-inner {
+      max-width: 860px;
       margin: 0 auto;
     }
 
-    .contact h2 {
-      font-size: clamp(22px, 3vw, 30px);
+    .section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .about h2 {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
       font-weight: 400;
       color: var(--navy);
+      margin-bottom: 28px;
+      line-height: 1.35;
+    }
+
+    .about p {
+      font-size: 1rem;
+      color: #374151;
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 96px 6%;
+      background: var(--white);
+    }
+
+    .services h2 {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 52px;
+      line-height: 1.35;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 36px;
+      max-width: 860px;
+    }
+
+    .service {
+      border-top: 1px solid #d1d5db;
+      padding-top: 24px;
+    }
+
+    .service h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 96px 6%;
+      background: var(--navy);
+    }
+
+    .contact .section-label { color: var(--accent-light); }
+
+    .contact h2 {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 400;
+      color: var(--white);
       margin-bottom: 16px;
     }
 
     .contact p {
-      color: var(--text-light);
-      font-size: 16px;
-      margin-bottom: 28px;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin-bottom: 36px;
+      font-size: 0.95rem;
     }
 
     .contact-email {
-      display: inline-block;
-      color: var(--navy);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
-      padding: 14px 36px;
-      border: 2px solid var(--navy);
-      letter-spacing: 0.5px;
-      transition: all 0.25s;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 3px;
+      transition: color 0.2s, border-color 0.2s;
     }
 
     .contact-email:hover {
-      background: var(--navy);
       color: var(--white);
+      border-color: rgba(255,255,255,0.6);
     }
 
-    /* ── Footer ───────────────────────────────────────── */
+    /* FOOTER */
     footer {
-      background: var(--navy);
-      padding: 48px 32px 32px;
-      color: rgba(255,255,255,0.5);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 12px;
-      line-height: 1.8;
+      background: #111827;
+      padding: 36px 6%;
     }
 
     .footer-inner {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    .footer-eho {
+    .footer-top {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .eho-icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
-
-    .footer-eho span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-      text-align: left;
-    }
-
-    .footer-disclaimer {
-      margin-bottom: 20px;
-      color: rgba(255,255,255,0.4);
-      font-size: 11px;
-      line-height: 1.7;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 24px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .footer-copy {
-      color: rgba(255,255,255,0.35);
-      font-size: 11px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.03em;
     }
 
-    /* ── Responsive ───────────────────────────────────── */
-    @media (max-width: 640px) {
-      .header-email { display: none; }
-      .hero { padding: 140px 24px 72px; }
-      .about, .focus, .contact { padding: 56px 24px; }
-      .focus-grid { grid-template-columns: 1fr; gap: 20px; }
-      .focus-card { padding: 24px 20px; }
+    .eho {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eho-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .eho-icon svg { width: 20px; height: 20px; }
+
+    .eho-text {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.4;
+    }
+
+    .footer-disclaimer {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.65;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 5%; }
+      .hero, .about, .services, .contact { padding-left: 5%; padding-right: 5%; }
+      footer { padding: 36px 5%; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <div class="logo-mark">K</div>
-        <div class="logo-text"><strong>Kong</strong> Cornerstone Group</div>
-      </a>
-      <a href="mailto:info@kongcornerstonegroup.com" class="header-email">info@kongcornerstonegroup.com</a>
-    </div>
-  </header>
+  <nav>
+    <a href="#" class="nav-logo">Kong Cornerstone Group</a>
+    <a href="#contact" class="nav-contact">Contact</a>
+  </nav>
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
+    <div class="hero-inner">
       <div class="hero-rule"></div>
-      <h1>Professional Residential Real Estate Ownership &amp; Management</h1>
-      <p>Kong Cornerstone Group is a private owner-operator focused on residential properties in New York City, with current operations in Queens and the Bronx.</p>
+      <h1>Professional Residential Property Management</h1>
+      <p class="hero-sub">Kong Cornerstone Group provides residential property management services with a focus on clear communication, responsible operations, and long-term property stewardship.</p>
+      <a href="#about" class="hero-cta">About the company →</a>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about">
-    <div class="about-inner">
-      <div class="section-label">About</div>
-      <h2>Principled Ownership, Professionally Managed</h2>
-      <p>Kong Cornerstone Group acquires, maintains, and manages residential rental properties with a focus on long-term stewardship. We prioritize well-maintained living environments, responsive management, and compliance with all applicable housing regulations.</p>
+  <section class="about" id="about">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2>A residential property management company serving New York City.</h2>
+      <p>Kong Cornerstone Group manages residential rental properties across New York City, with active operations in Queens and the Bronx. We focus on dependable day-to-day management, clear communication with residents, and maintaining the condition and compliance of each property we oversee.</p>
+      <p>We operate as a private management company — prioritizing stability, responsible stewardship, and the straightforward delivery of housing services.</p>
     </div>
   </section>
 
-  <!-- Focus Areas -->
-  <section class="focus">
-    <div class="focus-inner">
-      <div class="section-label">What We Do</div>
-      <h2>Our Areas of Focus</h2>
-      <div class="focus-grid">
-        <div class="focus-card">
-          <h3>Property Ownership</h3>
-          <p>Direct ownership of residential rental properties across New York City's borough markets.</p>
+  <section class="services" id="services">
+    <div class="section-inner">
+      <p class="section-label">What We Do</p>
+      <h2>Property management, handled with care.</h2>
+      <div class="service-grid">
+        <div class="service">
+          <h3>Day-to-Day Operations</h3>
+          <p>Routine maintenance coordination, vendor oversight, and ongoing property upkeep to keep buildings running smoothly.</p>
         </div>
-        <div class="focus-card">
-          <h3>Asset Management</h3>
-          <p>Hands-on operational management ensuring properties are well-maintained and responsibly operated.</p>
+        <div class="service">
+          <h3>Resident Relations</h3>
+          <p>Clear, timely communication with residents on maintenance requests, lease matters, and building-related questions.</p>
         </div>
-        <div class="focus-card">
-          <h3>Tenant Relations</h3>
-          <p>Professional, responsive communication with all residents in compliance with local and state housing guidelines.</p>
+        <div class="service">
+          <h3>Compliance & Reporting</h3>
+          <p>Keeping properties current with applicable local, state, and federal housing regulations and reporting requirements.</p>
+        </div>
+        <div class="service">
+          <h3>Long-Term Stewardship</h3>
+          <p>A patient, long-term approach to property oversight — prioritizing building integrity and resident stability over short-term gains.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact">
-    <div class="contact-inner">
-      <div class="section-label">Contact</div>
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
       <h2>General Inquiries</h2>
-      <p>For professional inquiries regarding Kong Cornerstone Group, please reach us by email.</p>
+      <p>For general information, please contact us by email. We do not accept unsolicited vendor proposals or solicitations via this address.</p>
       <a href="mailto:info@kongcornerstonegroup.com" class="contact-email">info@kongcornerstonegroup.com</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-eho">
-        <!-- Equal Housing Opportunity SVG -->
-        <svg class="eho-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="36" height="36" rx="2" fill="rgba(255,255,255,0.15)"/>
-          <path d="M18 6L6 16h4v12h16V16h4L18 6z" fill="rgba(255,255,255,0.7)"/>
-          <text x="18" y="25" font-size="5" font-family="Arial,sans-serif" fill="#1a2332" text-anchor="middle" font-weight="bold">=</text>
-        </svg>
-        <span>Equal Housing Opportunity. We comply with all federal, state, and local fair housing laws.</span>
+      <div class="footer-top">
+        <span class="footer-copy">© 2026 Kong Cornerstone Group LLC. All rights reserved.</span>
+        <div class="eho">
+          <div class="eho-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 10.5L12 3L21 10.5V21H15V15H9V21H3V10.5Z" fill="#1e2d3d"/>
+              <line x1="8" y1="15.5" x2="16" y2="15.5" stroke="white" stroke-width="1.5"/>
+              <line x1="8" y1="18.5" x2="16" y2="18.5" stroke="white" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="eho-text">Equal Housing<br>Opportunity</span>
+        </div>
       </div>
       <div class="footer-disclaimer">
-        This website is provided for informational purposes only and does not constitute an offer, solicitation, or advertisement for any property, service, or investment. No landlord-tenant relationship is created through this website. All property management activities are conducted in accordance with applicable laws and regulations.
-      </div>
-      <div class="footer-copy">
-        &copy; 2025 Kong Cornerstone Group LLC. All rights reserved.
+        Information on this website is provided for general informational purposes only and may be subject to change. Nothing on this site constitutes an offer to rent, lease, or provide any property management services. Kong Cornerstone Group LLC is an Equal Housing Opportunity provider and does not discriminate on the basis of race, color, national origin, religion, sex, familial status, disability, or any other characteristic protected by applicable federal, state, or local law.
       </div>
     </div>
   </footer>
