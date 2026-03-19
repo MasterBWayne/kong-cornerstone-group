@@ -1,646 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kong Cornerstone Group — NYC Residential Property Management. Submit maintenance requests, complaints, and inquiries online." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Kong Cornerstone Group — NYC Residential Property Management. Submit maintenance requests, complaints, and general inquiries online."/>
   <title>Kong Cornerstone Group</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy: #1e2d3d;
-      --navy-light: #263547;
-      --accent: #4a7c59;
-      --accent-light: #5f9970;
-      --white: #ffffff;
-      --off-white: #f7f7f5;
+      --green: #4a7c59;
+      --green-light: #5f9970;
+      --green-pale: #f0f7f3;
+      --white: #fff;
+      --off: #f8f8f6;
       --gray: #6b7280;
       --text: #1f2937;
       --border: #e5e7eb;
       --red: #dc2626;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--white); color: var(--text); line-height: 1.65; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--white);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    /* NAV */
+    nav { background: var(--navy); padding: 0.875rem 6%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 12px rgba(0,0,0,0.2); }
+    .nav-cta { background: var(--green); color: #fff; padding: 0.5rem 1.25rem; border-radius: 6px; text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--green-light); }
 
-    /* ── NAV ── */
-    nav {
-      background: var(--navy);
-      padding: 1rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo {
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-    .logo span { color: #7fc99b; }
-    nav a.nav-cta {
-      background: var(--accent);
-      color: white;
-      padding: 0.5rem 1.25rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    nav a.nav-cta:hover { background: var(--accent-light); }
+    /* HERO */
+    .hero { background: var(--navy); color: #fff; padding: 6rem 6% 5rem; text-align: center; }
+    .hero h1 { font-size: clamp(1.875rem, 5vw, 2.875rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.25rem; }
+    .hero h1 span { color: #7fc99b; }
+    .hero p { color: #94a3b8; font-size: 1.0625rem; max-width: 520px; margin: 0 auto 2.25rem; }
+    .hero-btn { display: inline-block; background: var(--green); color: #fff; padding: 0.9375rem 2.25rem; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s; }
+    .hero-btn:hover { background: var(--green-light); }
+    .hero-note { margin-top: 1.25rem; font-size: 0.8125rem; color: #64748b; }
 
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      color: white;
-      padding: 5rem 5% 4rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 300;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-    .hero h1 strong { font-weight: 700; }
-    .hero p {
-      font-size: 1.125rem;
-      color: #94a3b8;
-      max-width: 560px;
-      margin: 0 auto 2rem;
-    }
-    .hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      padding: 0.875rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--accent-light); }
-    .btn-secondary {
-      background: rgba(255,255,255,0.1);
-      color: white;
-      padding: 0.875rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: background 0.2s;
-      display: inline-block;
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+    /* HOW IT WORKS */
+    .how { background: var(--off); padding: 5rem 6%; }
+    .how h2 { font-size: 1.625rem; font-weight: 700; color: var(--navy); margin-bottom: 0.375rem; }
+    .how p.sub { color: var(--gray); margin-bottom: 3rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 860px; }
+    .step { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--green-pale); color: var(--green); border-radius: 50%; font-weight: 800; font-size: 0.875rem; margin-bottom: 1rem; }
+    .step h3 { font-size: 0.9375rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--gray); }
 
-    /* ── SECTION ── */
-    section { padding: 4rem 5%; }
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--navy);
-    }
-    .section-sub {
-      color: var(--gray);
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
-    }
+    /* PORTAL */
+    #portal { padding: 5rem 6%; background: var(--white); }
+    #portal h2 { font-size: 1.625rem; font-weight: 700; color: var(--navy); margin-bottom: 0.375rem; }
+    #portal p.sub { color: var(--gray); margin-bottom: 2rem; }
+    .tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .tab { padding: 0.625rem 1.25rem; border-radius: 8px; border: 2px solid var(--border); background: var(--white); font-size: 0.875rem; font-weight: 600; cursor: pointer; color: var(--gray); transition: all 0.2s; }
+    .tab.active { border-color: var(--green); background: var(--green); color: #fff; }
+    .tab:hover:not(.active) { border-color: var(--green); color: var(--green); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .form-card { max-width: 580px; background: var(--off); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .frow { margin-bottom: 1.25rem; }
+    .frow label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 0.375rem; }
+    .frow input, .frow select, .frow textarea { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.9375rem; background: var(--white); color: var(--text); font-family: inherit; transition: border-color 0.2s; }
+    .frow input:focus, .frow select:focus, .frow textarea:focus { outline: none; border-color: var(--green); }
+    .frow textarea { resize: vertical; min-height: 110px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:480px){ .two { grid-template-columns: 1fr; } }
+    .pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill { padding: 0.4375rem 1rem; border-radius: 999px; border: 1.5px solid var(--border); background: var(--white); font-size: 0.8125rem; font-weight: 600; cursor: pointer; color: var(--gray); transition: all 0.2s; }
+    .pill.on { border-color: var(--green); background: var(--green); color: #fff; }
+    .pill.on.urgent { border-color: var(--red); background: var(--red); }
+    .submit { width: 100%; padding: 0.9375rem; background: var(--green); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+    .submit:hover { background: var(--green-light); }
+    .success { display: none; background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 1.5rem; text-align: center; color: #15803d; font-weight: 600; margin-top: 1rem; }
+    .success .ck { font-size: 2rem; margin-bottom: 0.5rem; }
 
-    /* ── FEATURES ── */
-    .features { background: var(--off-white); }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      max-width: 900px;
-    }
-    .feature-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-    }
-    .feature-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
-    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--navy); }
-    .feature-card p { font-size: 0.875rem; color: var(--gray); }
+    /* ABOUT */
+    #about { background: var(--off); padding: 5rem 6%; }
+    #about h2 { font-size: 1.625rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
+    #about p { color: var(--gray); font-size: 1.0625rem; line-height: 1.8; max-width: 680px; }
 
-    /* ── PORTAL ── */
-    #portal { background: white; }
-    .portal-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      padding: 0.625rem 1.25rem;
-      border-radius: 8px;
-      border: 2px solid var(--border);
-      background: white;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--gray);
-    }
-    .tab-btn.active {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: white;
-    }
-    .tab-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+    /* FAQ */
+    #faq { padding: 5rem 6%; background: var(--white); }
+    #faq h2 { font-size: 1.625rem; font-weight: 700; color: var(--navy); margin-bottom: 0.375rem; }
+    #faq p.sub { color: var(--gray); margin-bottom: 2.5rem; }
+    .faq-list { max-width: 700px; display: flex; flex-direction: column; gap: 0.75rem; }
+    details { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    details summary { padding: 1.125rem 1.25rem; font-weight: 600; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 0.9375rem; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 1.25rem; color: var(--green); flex-shrink: 0; margin-left: 1rem; }
+    details[open] summary::after { content: '−'; }
+    details[open] summary { border-bottom: 1px solid var(--border); }
+    details p { padding: 1rem 1.25rem; color: var(--gray); font-size: 0.9375rem; line-height: 1.7; }
 
-    .form-panel { display: none; }
-    .form-panel.active { display: block; }
-
-    .form-wrap {
-      max-width: 600px;
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-    }
-    .form-row { margin-bottom: 1.25rem; }
-    .form-row label {
-      display: block;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--navy);
-      margin-bottom: 0.375rem;
-    }
-    .form-row input,
-    .form-row select,
-    .form-row textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9375rem;
-      background: white;
-      color: var(--text);
-      transition: border-color 0.2s;
-      font-family: inherit;
-    }
-    .form-row input:focus,
-    .form-row select:focus,
-    .form-row textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .form-row textarea { resize: vertical; min-height: 120px; }
-    .form-row.two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    @media (max-width: 500px) { .form-row.two-col { grid-template-columns: 1fr; } }
-
-    .urgency-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .urgency-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: 1.5px solid var(--border);
-      background: white;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--gray);
-    }
-    .urgency-btn.active { border-color: var(--accent); background: var(--accent); color: white; }
-    .urgency-btn.urgent.active { border-color: var(--red); background: var(--red); }
-
-    .submit-btn {
-      width: 100%;
-      padding: 0.875rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 0.5rem;
-    }
-    .submit-btn:hover { background: var(--accent-light); }
-
-    .success-msg {
-      display: none;
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      color: #15803d;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-    .success-msg .check { font-size: 2rem; margin-bottom: 0.5rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: #94a3b8;
-      padding: 2.5rem 5%;
-      text-align: center;
-      font-size: 0.875rem;
-    }
+    /* FOOTER */
+    footer { background: var(--navy); color: #94a3b8; padding: 2.5rem 6%; text-align: center; font-size: 0.875rem; }
     footer p { margin: 0.375rem 0; }
     footer a { color: #7fc99b; text-decoration: none; }
-    .eho { font-size: 0.75rem; opacity: 0.6; margin-top: 1rem; }
+    .eho { font-size: 0.75rem; opacity: 0.55; margin-top: 1rem; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#"><img src="/logo_white.svg" alt="Kong Cornerstone Group" style="height:46px; width:auto; display:block;"></a>
-    <a href="#portal" class="nav-cta">Submit a Request</a>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a href="#"><img src="/logo_white.svg" alt="Kong Cornerstone Group" style="height:44px;width:auto;display:block;"></a>
+  <a href="#portal" class="nav-cta">Submit a Request</a>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1><strong>NYC Property Management</strong><br>Built for Residents</h1>
-    <p>Have a maintenance issue or question? Submit it online — no calls needed. We handle it from there.</p>
-    <div class="hero-btns">
-      <a href="#portal" class="btn-primary">🔧 Submit a Request</a>
-      <a href="#about" class="btn-secondary">Learn More</a>
+<!-- HERO -->
+<section class="hero">
+  <h1>Submit a request.<br><span>We'll handle it.</span></h1>
+  <p>Maintenance, complaints, or questions — use our online portal. No calls, no voicemails. Fast, documented responses.</p>
+  <a href="#portal" class="hero-btn">🔧 Get Started</a>
+  <p class="hero-note">Available 24/7 · No account needed</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <h2>How It Works</h2>
+  <p class="sub">Three steps. That's it.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Submit Online</h3>
+      <p>Fill out the form below in under 2 minutes. Pick your request type and describe the issue.</p>
     </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="about">
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">Everything handled online. No phone tag.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Submit Online</h3>
-        <p>Fill out a quick form — maintenance, complaint, or general question. Takes 2 minutes.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✉️</div>
-        <h3>We Receive It Instantly</h3>
-        <p>Your request goes directly to our management team. No voicemails, no missed calls.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Fast Response</h3>
-        <p>Urgent issues are flagged immediately. Standard requests handled within 48 hours.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📍</div>
-        <h3>NYC Properties</h3>
-        <p>Serving Queens and the Bronx. We manage every property with care and accountability.</p>
-      </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We Receive It</h3>
+      <p>Your request lands directly with our management team — no missed calls, no voicemails.</p>
     </div>
-  </section>
-
-  <!-- TENANT PORTAL -->
-  <section id="portal">
-    <h2 class="section-title">Tenant Portal</h2>
-    <p class="section-sub">Select the type of request below and fill out the form.</p>
-
-    <div class="portal-tabs">
-      <button class="tab-btn active" onclick="switchTab('maintenance')">🔧 Maintenance Request</button>
-      <button class="tab-btn" onclick="switchTab('complaint')">📣 Complaint</button>
-      <button class="tab-btn" onclick="switchTab('inquiry')">💬 General Inquiry</button>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>We Respond</h3>
+      <p>Urgent issues are flagged immediately. Standard requests addressed within 48 hours.</p>
     </div>
+  </div>
+</section>
 
-    <!-- MAINTENANCE FORM -->
-    <div class="form-panel active" id="tab-maintenance">
-      <div class="form-wrap">
-        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event, 'maintenance-success')">
-          <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
-          <input type="hidden" name="subject" value="🔧 Maintenance Request — Kong Cornerstone Group">
-          <input type="hidden" name="from_name" value="Kong Cornerstone Group">
-          <input type="hidden" name="request_type" value="Maintenance Request">
+<!-- PORTAL -->
+<section id="portal">
+  <h2>Tenant Portal</h2>
+  <p class="sub">Choose a request type to get started.</p>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('maint',this)">🔧 Maintenance Request</button>
+    <button class="tab" onclick="switchTab('complaint',this)">📣 Complaint</button>
+    <button class="tab" onclick="switchTab('inquiry',this)">💬 General Inquiry</button>
+  </div>
 
-          <div class="form-row two-col">
-            <div>
-              <label>First Name *</label>
-              <input type="text" name="first_name" required placeholder="Jane">
-            </div>
-            <div>
-              <label>Last Name *</label>
-              <input type="text" name="last_name" required placeholder="Smith">
-            </div>
-          </div>
-
-          <div class="form-row two-col">
-            <div>
-              <label>Unit / Apartment *</label>
-              <input type="text" name="unit" required placeholder="Apt 2B">
-            </div>
-            <div>
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="(718) 555-0100">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Email Address *</label>
-            <input type="email" name="email" required placeholder="jane@email.com">
-          </div>
-
-          <div class="form-row">
-            <label>Issue Type *</label>
-            <select name="issue_type" required>
-              <option value="">Select issue type...</option>
-              <option>Plumbing (leak, clog, no hot water)</option>
-              <option>Heating / Air Conditioning</option>
-              <option>Electrical</option>
-              <option>Appliance (stove, fridge, washer)</option>
-              <option>Pest Control</option>
-              <option>Door / Lock / Security</option>
-              <option>Windows / Walls / Floors</option>
-              <option>Common Area</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>Urgency *</label>
-            <div class="urgency-row">
-              <button type="button" class="urgency-btn" onclick="setUrgency(this, 'routine')">🟢 Routine</button>
-              <button type="button" class="urgency-btn" onclick="setUrgency(this, 'soon')">🟡 Needs Attention Soon</button>
-              <button type="button" class="urgency-btn urgent" onclick="setUrgency(this, 'urgent')">🔴 Urgent / Emergency</button>
-            </div>
-            <input type="hidden" name="urgency" id="urgency-value" required>
-          </div>
-
-          <div class="form-row">
-            <label>Describe the Issue *</label>
-            <textarea name="description" required placeholder="Please describe the problem in detail. Include when it started, where in the unit it is, and anything you've tried."></textarea>
-          </div>
-
-          <div class="form-row">
-            <label>Best Time to Enter Unit</label>
-            <input type="text" name="entry_time" placeholder="e.g. Weekdays after 5pm, anytime with notice">
-          </div>
-
-          <button type="submit" class="submit-btn">Submit Maintenance Request →</button>
-        </form>
-        <div class="success-msg" id="maintenance-success">
-          <div class="check">✅</div>
-          <p>Request submitted! We'll be in touch within 48 hours.</p>
-          <p style="font-weight:400;font-size:0.875rem;margin-top:0.5rem;color:#166534">Urgent issues are flagged immediately.</p>
+  <!-- MAINTENANCE -->
+  <div class="panel active" id="tab-maint">
+    <div class="form-card">
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="submitForm(event,'maint-ok')">
+        <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
+        <input type="hidden" name="subject" value="🔧 Maintenance Request — Kong Cornerstone Group">
+        <input type="hidden" name="from_name" value="Kong Cornerstone Group">
+        <input type="hidden" name="request_type" value="Maintenance Request">
+        <div class="frow two">
+          <div><label>First Name *</label><input type="text" name="first_name" required placeholder="Jane"></div>
+          <div><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- COMPLAINT FORM -->
-    <div class="form-panel" id="tab-complaint">
-      <div class="form-wrap">
-        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event, 'complaint-success')">
-          <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
-          <input type="hidden" name="subject" value="📣 Complaint — Kong Cornerstone Group">
-          <input type="hidden" name="from_name" value="Kong Cornerstone Group">
-          <input type="hidden" name="request_type" value="Complaint">
-
-          <div class="form-row two-col">
-            <div>
-              <label>First Name *</label>
-              <input type="text" name="first_name" required placeholder="Jane">
-            </div>
-            <div>
-              <label>Last Name *</label>
-              <input type="text" name="last_name" required placeholder="Smith">
-            </div>
-          </div>
-
-          <div class="form-row two-col">
-            <div>
-              <label>Unit / Apartment *</label>
-              <input type="text" name="unit" required placeholder="Apt 2B">
-            </div>
-            <div>
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="(718) 555-0100">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Email Address *</label>
-            <input type="email" name="email" required placeholder="jane@email.com">
-          </div>
-
-          <div class="form-row">
-            <label>Complaint Category *</label>
-            <select name="complaint_type" required>
-              <option value="">Select category...</option>
-              <option>Noise Complaint (neighbor)</option>
-              <option>Building Cleanliness</option>
-              <option>Safety / Security Concern</option>
-              <option>Harassment or Neighbor Dispute</option>
-              <option>Management / Service Issue</option>
-              <option>Lease / Rent Concern</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>Describe Your Complaint *</label>
-            <textarea name="description" required placeholder="Please describe the issue clearly. Include relevant dates, times, and any prior attempts to resolve this."></textarea>
-          </div>
-
-          <div class="form-row">
-            <label>Desired Resolution</label>
-            <textarea name="resolution" placeholder="What outcome are you hoping for?" style="min-height:80px"></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Submit Complaint →</button>
-        </form>
-        <div class="success-msg" id="complaint-success">
-          <div class="check">✅</div>
-          <p>Complaint received. We take all concerns seriously.</p>
-          <p style="font-weight:400;font-size:0.875rem;margin-top:0.5rem;color:#166534">We'll respond within 2 business days.</p>
+        <div class="frow two">
+          <div><label>Unit / Apt *</label><input type="text" name="unit" required placeholder="Apt 2B"></div>
+          <div><label>Phone</label><input type="tel" name="phone" placeholder="(718) 555-0100"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- INQUIRY FORM -->
-    <div class="form-panel" id="tab-inquiry">
-      <div class="form-wrap">
-        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event, 'inquiry-success')">
-          <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
-          <input type="hidden" name="subject" value="💬 General Inquiry — Kong Cornerstone Group">
-          <input type="hidden" name="from_name" value="Kong Cornerstone Group">
-          <input type="hidden" name="request_type" value="General Inquiry">
-
-          <div class="form-row two-col">
-            <div>
-              <label>First Name *</label>
-              <input type="text" name="first_name" required placeholder="Jane">
-            </div>
-            <div>
-              <label>Last Name *</label>
-              <input type="text" name="last_name" required placeholder="Smith">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <label>Email Address *</label>
-            <input type="email" name="email" required placeholder="jane@email.com">
-          </div>
-
-          <div class="form-row">
-            <label>Unit / Apartment (if applicable)</label>
-            <input type="text" name="unit" placeholder="Apt 2B or N/A">
-          </div>
-
-          <div class="form-row">
-            <label>Subject *</label>
-            <input type="text" name="subject" required placeholder="e.g. Lease renewal question">
-          </div>
-
-          <div class="form-row">
-            <label>Message *</label>
-            <textarea name="message" required placeholder="How can we help you?"></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send Message →</button>
-        </form>
-        <div class="success-msg" id="inquiry-success">
-          <div class="check">✅</div>
-          <p>Message received! We'll get back to you shortly.</p>
+        <div class="frow"><label>Email *</label><input type="email" name="email" required placeholder="jane@email.com"></div>
+        <div class="frow">
+          <label>Issue Type *</label>
+          <select name="issue_type" required>
+            <option value="">Select…</option>
+            <option>Plumbing (leak, clog, no hot water)</option>
+            <option>Heating / Air Conditioning</option>
+            <option>Electrical</option>
+            <option>Appliance (stove, fridge, washer)</option>
+            <option>Pest Control</option>
+            <option>Door / Lock / Security</option>
+            <option>Windows / Walls / Floors</option>
+            <option>Common Area</option>
+            <option>Other</option>
+          </select>
         </div>
-      </div>
+        <div class="frow">
+          <label>Urgency *</label>
+          <div class="pills">
+            <button type="button" class="pill" onclick="setPill(this,'urgency','routine')">🟢 Routine</button>
+            <button type="button" class="pill" onclick="setPill(this,'urgency','soon')">🟡 Needs Attention Soon</button>
+            <button type="button" class="pill urgent" onclick="setPill(this,'urgency','urgent')">🔴 Urgent / Emergency</button>
+          </div>
+          <input type="hidden" name="urgency" id="urgency">
+        </div>
+        <div class="frow"><label>Describe the Issue *</label><textarea name="description" required placeholder="What's happening? Where in the unit? When did it start?"></textarea></div>
+        <div class="frow"><label>Best Time to Access Unit</label><input type="text" name="entry_time" placeholder="e.g. Weekdays after 5pm"></div>
+        <button type="submit" class="submit">Submit Request →</button>
+      </form>
+      <div class="success" id="maint-ok"><div class="ck">✅</div><p>Request received! We'll follow up within 48 hours.</p><p style="font-weight:400;font-size:0.875rem;margin-top:0.5rem;color:#166534">Urgent issues are flagged immediately.</p></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about-us" style="background:#f7f7f5; padding:4rem 5%;">
-    <div style="max-width:720px;">
-      <h2 class="section-title">About Us</h2>
-      <p style="color:#4b5563; font-size:1.0625rem; line-height:1.8; margin-top:1rem;">
-        Kong Cornerstone Group is a privately held residential property management company serving Queens and the Bronx, New York. We focus on responsive management, clear communication, and well-maintained homes for our residents. Every property we manage is handled with care and professionalism — our tenants are our priority.
-      </p>
+  <!-- COMPLAINT -->
+  <div class="panel" id="tab-complaint">
+    <div class="form-card">
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="submitForm(event,'complaint-ok')">
+        <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
+        <input type="hidden" name="subject" value="📣 Complaint — Kong Cornerstone Group">
+        <input type="hidden" name="from_name" value="Kong Cornerstone Group">
+        <input type="hidden" name="request_type" value="Complaint">
+        <div class="frow two">
+          <div><label>First Name *</label><input type="text" name="first_name" required placeholder="Jane"></div>
+          <div><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith"></div>
+        </div>
+        <div class="frow two">
+          <div><label>Unit / Apt *</label><input type="text" name="unit" required placeholder="Apt 2B"></div>
+          <div><label>Phone</label><input type="tel" name="phone" placeholder="(718) 555-0100"></div>
+        </div>
+        <div class="frow"><label>Email *</label><input type="email" name="email" required placeholder="jane@email.com"></div>
+        <div class="frow">
+          <label>Category *</label>
+          <select name="complaint_type" required>
+            <option value="">Select…</option>
+            <option>Noise Complaint (neighbor)</option>
+            <option>Building Cleanliness</option>
+            <option>Safety / Security Concern</option>
+            <option>Harassment or Neighbor Dispute</option>
+            <option>Management / Service Issue</option>
+            <option>Lease / Rent Concern</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="frow"><label>Describe Your Complaint *</label><textarea name="description" required placeholder="Include relevant dates, times, and any prior attempts to resolve this."></textarea></div>
+        <div class="frow"><label>Desired Resolution</label><textarea name="resolution" placeholder="What outcome are you hoping for?" style="min-height:80px"></textarea></div>
+        <button type="submit" class="submit">Submit Complaint →</button>
+      </form>
+      <div class="success" id="complaint-ok"><div class="ck">✅</div><p>Complaint received. We'll respond within 2 business days.</p></div>
     </div>
-  </section>
+  </div>
 
-  <!-- FAQ -->
-  <section id="faq" style="background:white; padding:4rem 5%;">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <p class="section-sub">Answers to the most common tenant questions.</p>
-    <div style="max-width:720px; display:flex; flex-direction:column; gap:1rem;">
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How do I pay rent? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Rent is due on the 1st of each month. Payment instructions are included in your lease agreement. If you have questions about payment methods, submit a General Inquiry through the Tenant Portal above.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How do I submit a maintenance request? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Use the Tenant Portal on this page. Select "Maintenance Request," fill out the form with as much detail as possible, and submit. You'll receive a confirmation and we'll follow up within 48 hours. Urgent issues are prioritized immediately.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">What counts as a maintenance emergency? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Emergencies include: no heat in winter, flooding or active leaks, gas smell, no running water, broken locks or security issues. For emergencies, select "Urgent / Emergency" in the form and we will respond as soon as possible.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How long will maintenance take? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Urgent issues are addressed immediately. Standard requests are typically handled within 2–5 business days depending on the nature of the repair. We will keep you updated on the status.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How do I renew my lease? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">We will reach out to you 60–90 days before your lease expires. If you'd like to discuss renewal earlier, submit a General Inquiry through the portal and we'll be in touch.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">What is your noise policy? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Quiet hours are 10pm–8am. Excessive noise that disturbs other residents is a lease violation. If you have a noise complaint, please submit it through the Tenant Portal and we will address it.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">Can I have a pet? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Pet policies vary by unit. Please refer to your lease agreement or submit a General Inquiry to ask about your specific unit.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">What happens if I pay rent late? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Late fees may apply as specified in your lease. If you are experiencing a hardship, please reach out through the Tenant Portal before the due date — we prefer to work with tenants proactively.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How do I report a building safety issue? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Submit a Complaint through the Tenant Portal and select "Safety / Security Concern." For immediate danger, call 911 first, then notify us.</p>
-      </details>
-
-      <details style="border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; cursor:pointer;">
-        <summary style="font-weight:600; color:#1e2d3d; font-size:0.9375rem; list-style:none; display:flex; justify-content:space-between; align-items:center;">How do I contact management? <span>﹢</span></summary>
-        <p style="margin-top:0.75rem; color:#4b5563; font-size:0.875rem; line-height:1.6;">Use the Tenant Portal on this page for all requests. For general questions, email <a href="mailto:management@kongcornerstonegroup.com" style="color:#4a7c59;">management@kongcornerstonegroup.com</a>. We respond within 1–2 business days.</p>
-      </details>
-
+  <!-- INQUIRY -->
+  <div class="panel" id="tab-inquiry">
+    <div class="form-card">
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="submitForm(event,'inquiry-ok')">
+        <input type="hidden" name="access_key" value="032bd5e3-81a8-41db-b110-2bc5b5361986">
+        <input type="hidden" name="subject" value="💬 General Inquiry — Kong Cornerstone Group">
+        <input type="hidden" name="from_name" value="Kong Cornerstone Group">
+        <input type="hidden" name="request_type" value="General Inquiry">
+        <div class="frow two">
+          <div><label>First Name *</label><input type="text" name="first_name" required placeholder="Jane"></div>
+          <div><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith"></div>
+        </div>
+        <div class="frow"><label>Email *</label><input type="email" name="email" required placeholder="jane@email.com"></div>
+        <div class="frow"><label>Unit / Apt (if applicable)</label><input type="text" name="unit" placeholder="Apt 2B"></div>
+        <div class="frow"><label>Subject *</label><input type="text" name="subject_line" required placeholder="e.g. Lease renewal question"></div>
+        <div class="frow"><label>Message *</label><textarea name="message" required placeholder="How can we help you?"></textarea></div>
+        <button type="submit" class="submit">Send Message →</button>
+      </form>
+      <div class="success" id="inquiry-ok"><div class="ck">✅</div><p>Message received! We'll get back to you shortly.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p><strong style="color:white">Kong Cornerstone Group LLC</strong></p>
-    <p>New York City · Queens & The Bronx</p>
-    <p><a href="mailto:management@kongcornerstonegroup.com">management@kongcornerstonegroup.com</a></p>
-    <p class="eho">© 2026 Kong Cornerstone Group LLC. All rights reserved. &nbsp;|&nbsp; <img src="https://www.hud.gov/sites/dfiles/Main/images/EHO_logo.png" alt="Equal Housing Opportunity" style="height:16px; vertical-align:middle; margin-right:4px;">Equal Housing Opportunity</p>
-  </footer>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>Kong Cornerstone Group is a privately held residential property management company serving Queens and the Bronx, New York. We focus on responsive management, clear communication, and well-maintained homes for our residents. Every property we manage is handled with care and accountability — our tenants are our priority.</p>
+</section>
 
-  <script>
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
-      event.target.classList.add('active');
-      document.getElementById('tab-' + tab).classList.add('active');
-    }
+<!-- FAQ -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <p class="sub">Common questions from tenants.</p>
+  <div class="faq-list">
+    <details><summary>How do I pay rent?</summary><p>Rent is due on the 1st of each month. Payment instructions are included in your lease agreement. For questions about payment methods, submit a General Inquiry through the portal above.</p></details>
+    <details><summary>How do I submit a maintenance request?</summary><p>Use the Tenant Portal on this page. Select "Maintenance Request," fill out the form, and submit. You'll receive a confirmation and we'll follow up within 48 hours. Urgent issues are prioritized immediately.</p></details>
+    <details><summary>What counts as a maintenance emergency?</summary><p>Emergencies include: no heat in winter, flooding or active leaks, gas smell, no running water, broken locks or security issues. Select "Urgent / Emergency" in the form and we will respond as soon as possible.</p></details>
+    <details><summary>How long will maintenance take?</summary><p>Urgent issues are addressed immediately. Standard requests are typically handled within 2–5 business days depending on the nature of the repair. We will keep you updated on the status.</p></details>
+    <details><summary>How do I renew my lease?</summary><p>We will reach out 60–90 days before your lease expires. To discuss renewal earlier, submit a General Inquiry through the portal.</p></details>
+    <details><summary>What is your noise policy?</summary><p>Quiet hours are 10pm–8am. Excessive noise is a lease violation. File a noise complaint through the Tenant Portal and we will address it.</p></details>
+    <details><summary>Can I have a pet?</summary><p>Pet policies vary by unit. Refer to your lease agreement or submit a General Inquiry to ask about your specific unit.</p></details>
+    <details><summary>What happens if I pay rent late?</summary><p>Late fees may apply as specified in your lease. If you're experiencing a hardship, please reach out through the portal before the due date.</p></details>
+    <details><summary>How do I report a safety issue?</summary><p>Submit a Complaint and select "Safety / Security Concern." For immediate danger, call 911 first, then notify us.</p></details>
+    <details><summary>How do I contact management?</summary><p>Use the Tenant Portal for all requests. For general questions, email <a href="mailto:management@kongcornerstonegroup.com">management@kongcornerstonegroup.com</a>. We respond within 1–2 business days.</p></details>
+  </div>
+</section>
 
-    function setUrgency(btn, value) {
-      btn.closest('.urgency-row').querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('urgency-value').value = value;
-    }
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:#fff">Kong Cornerstone Group LLC</strong></p>
+  <p>New York City · Queens &amp; The Bronx</p>
+  <p><a href="mailto:management@kongcornerstonegroup.com">management@kongcornerstonegroup.com</a></p>
+  <p class="eho">© 2026 Kong Cornerstone Group LLC. All rights reserved. · Equal Housing Opportunity 🏠</p>
+</footer>
 
-    function handleSubmit(e, successId) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
 
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(res => {
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById(successId).style.display = 'block';
-        } else {
-          alert('Something went wrong. Please try again or email us directly.');
-        }
-      }).catch(() => {
-        alert('Network error. Please try again.');
-      });
-    }
-  </script>
+  function setPill(btn, fieldId, val) {
+    btn.closest('.pills').querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById(fieldId).value = val;
+  }
 
+  function submitForm(e, successId) {
+    e.preventDefault();
+    const form = e.target;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(r => {
+        if (r.ok) { form.style.display = 'none'; document.getElementById(successId).style.display = 'block'; }
+        else { alert('Something went wrong. Please email us directly.'); }
+      }).catch(() => alert('Network error. Please try again.'));
+  }
+</script>
 </body>
 </html>
