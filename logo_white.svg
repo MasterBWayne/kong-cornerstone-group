@@ -1,19 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 56" width="420" height="56">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 52" width="260" height="52">
   <!-- Building icon -->
-  <g transform="translate(2, 2)">
-    <!-- Body -->
-    <rect x="6" y="24" width="40" height="28" fill="#7fc99b"/>
-    <!-- Roof -->
-    <polygon points="2,26 26,4 50,26" fill="#5f9970"/>
-    <!-- Door -->
-    <rect x="17" y="36" width="16" height="16" fill="#1e2d3d"/>
-    <!-- Windows -->
-    <rect x="7" y="28" width="9" height="7" fill="white" rx="1"/>
-    <rect x="36" y="28" width="9" height="7" fill="white" rx="1"/>
+  <g transform="translate(0, 2)">
+    <rect x="5" y="22" width="36" height="26" fill="#7fc99b"/>
+    <polygon points="1,24 23,4 45,24" fill="#5f9970"/>
+    <rect x="15" y="33" width="14" height="15" fill="#1e2d3d"/>
+    <rect x="6" y="26" width="8" height="6" fill="white" rx="1"/>
+    <rect x="31" y="26" width="8" height="6" fill="white" rx="1"/>
   </g>
-  <!-- Divider line -->
-  <line x1="64" y1="8" x2="64" y2="48" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-  <!-- Text block -->
-  <text x="76" y="26" font-family="Georgia, serif" font-size="20" font-weight="700" letter-spacing="1.5" fill="white">KONG CORNERSTONE GROUP</text>
-  <text x="77" y="44" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="4" fill="#7fc99b">NEW YORK CITY</text>
+  <!-- Text -->
+  <text x="56" y="22" font-family="Georgia, serif" font-size="16" font-weight="700" letter-spacing="1" fill="white">KONG CORNERSTONE</text>
+  <text x="57" y="38" font-family="Georgia, serif" font-size="14" font-weight="400" letter-spacing="2" fill="#7fc99b">GROUP · NYC</text>
 </svg>
