@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Jimmy Kong">
+  <title>Jimmy Kong</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1e2d3d;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, sans-serif;
+      padding: 2rem;
+    }
+    .name {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .title {
+      color: #4a7c59;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+    .company {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .qr-wrap {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .qr-wrap img { width: 240px; height: 240px; display: block; }
+    .hint {
+      color: #64748b;
+      font-size: 0.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      width: 100%;
+      max-width: 300px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+    .contact-item span.icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="name">Jimmy Kong</div>
+  <div class="title">CEO</div>
+  <div class="company">Kong Cornerstone Group</div>
+
+  <div class="qr-wrap">
+    <!-- QR code as inline SVG generated via Google Charts API -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=1e2d3d&bgcolor=ffffff&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AJimmy+Kong%0AN%3AKong%3BJimmy%3B%3B%3B%0ATITLE%3ACEO%0AORG%3AKong+Cornerstone+Group%0ATEL%3BTYPE%3DCELL%2CWORK%3A%2B16466628812%0ATEL%3BTYPE%3DCELL%2CINTL%3A%2B66981269300%0AEMAIL%3BTYPE%3DWORK%3Ajimmy%40kongcornerstonegroup.com%0AURL%3Ahttps%3A%2F%2Fkongcornerstonegroup.com%0AEND%3AVCARD" alt="QR Code" />
+  </div>
+
+  <p class="hint">Point camera here to save contact</p>
+
+  <div class="contacts">
+    <a href="tel:+16466628812" class="contact-item">
+      <span class="icon">📱</span>
+      <span>+1 (646) 662-8812</span>
+    </a>
+    <a href="tel:+66981269300" class="contact-item">
+      <span class="icon">📱</span>
+      <span>+66 98 126 9300</span>
+    </a>
+    <a href="mailto:jimmy@kongcornerstonegroup.com" class="contact-item">
+      <span class="icon">✉️</span>
+      <span>jimmy@kongcornerstonegroup.com</span>
+    </a>
+    <a href="https://kongcornerstonegroup.com" class="contact-item">
+      <span class="icon">🌐</span>
+      <span>kongcornerstonegroup.com</span>
+    </a>
+  </div>
+
+</body>
+</html>
